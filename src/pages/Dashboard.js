@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import EventCardList from "../components/EventCardList";
+import "../styles/Dashboard.css";
 import axios from "axios";
 
 const kBaseUrl = 'http://127.0.0.1:5000'
@@ -17,8 +18,8 @@ const Dashboard = () => {
   }, []);
 
   return (
-      <div>
-          <EventCardList eventData={eventData}/>
+      <div className="dashboard-container">
+          <EventCardList eventData={eventData} />
       </div>
   )
 };

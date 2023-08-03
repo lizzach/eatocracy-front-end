@@ -1,27 +1,32 @@
 .App-header h1 {
   text-align: center;
   margin: 0;
-  /* border: 5px solid blue; */
   height: 4rem;
   font-family: 'Dancing Script', cursive;
   font-size: 2.5em;
 }
 
 .submission-list {
-  display: flex;
+  /* display: flex;
   height: 750px;
-  justify-content: space-evenly;
+  justify-content: space-evenly; */
+  display: grid;
+  grid-template-columns: 10% 90% 10%;
+}
+
+.submission-cards {
+  grid-column-start: 2;
 }
 
 .main-event-container {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 70% 30%;
   margin-top: 3rem;
   margin-bottom: 5rem;
 }
 
 .event-card {
-  padding-left: 15rem;
+  padding-left: 11.5rem;
   padding-right: 5rem;
 }
 

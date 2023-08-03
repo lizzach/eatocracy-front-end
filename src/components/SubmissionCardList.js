@@ -12,7 +12,7 @@ import {
     IconButton,
   } from "@material-tailwind/react";
    
-const SubmissionCard = (props) => {
+const SubmissionCardList = (props) => {
 
   const getRandomImg = (numImages) => {
     const randNum = Math.floor(Math.random() * numImages);
@@ -75,7 +75,7 @@ const SubmissionCard = (props) => {
         </Typography>
       </CardBody>
       <CardFooter className="pt-3">
-        <Button size="lg" fullWidth={true}>
+        <Button className="bg-blue-900" size="lg" fullWidth={true}>
           Vote
         </Button>
       </CardFooter>
@@ -91,5 +91,5 @@ const SubmissionCard = (props) => {
   }
   
 
-export default SubmissionCard;
+export default SubmissionCardList;
   
