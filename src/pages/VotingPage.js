@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import '../styles/VotingPage.css';
 import axios from 'axios';
-import Navbar from "../components/Navbar/Navbar";
-import EventCard from "../components/Card/EventCard";
-import SubmissionCard from "../components/SubmissionCard/SubmissionCard";
+import Navbar from "../components/Navbar";
+import EventCard from "../components/EventCard";
+import SubmissionCard from "../components/SubmissionCard";
 import ParticipantsButton from "../components/ParticipantsButton";
 import SearchBox from "../components/SearchBar";
 import CityInputBox from "../components/CityInputBox";

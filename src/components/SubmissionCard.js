@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './SubmissionCard.css'
+import '../styles/SubmissionCard.css'
 
 import {
     Card,
