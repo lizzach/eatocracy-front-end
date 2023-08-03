@@ -1,0 +1,11 @@
+.new-event-container {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.new-event-form {
+    grid-column-start: 2;
+    margin-top: 5rem;
+    justify-self: center;
+}
+
