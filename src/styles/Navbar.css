@@ -18,3 +18,12 @@
     font-size: 0.75em;
     /* font-weight: bold; */
 }
+
+.App-header h1 {
+    text-align: center;
+    margin: 0;
+    /* border: 5px solid blue; */
+    height: 4rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+  }
