@@ -28,7 +28,7 @@ const EventCard = (props) => {
           className="m-0 w-2/5 shrink-0 rounded-r-none"
         >
           <img
-            src="https://unsplash.com/photos/-YHSwy6uqvk"
+            src="../images/stock-photo-1.jpg"
             alt="food on a table"
             className="h-full w-full object-cover"
           />
