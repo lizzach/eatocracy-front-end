@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 // import "./EventCard.css";
 
 
@@ -11,14 +12,14 @@ import {
    
 const EventCard = (props) => {
 
-    const testEventData =
-        {
-        id: 1,
-        event_name: "Girl's Night (and Cameron)",
-        creator: "nicola",
-        event_date: "November 10, 2023",
-        voting_deadline: "November 3, 2023"
-        }
+  const [selectedEvent, setSelectedEvent] = useState([]);
+  
+  useEffect(() => {
+    axios
+      .get(`${props.baseUrl}/events/${props.eventID}`)
+      .then((res) => setSelectedEvent(res.data[0]))
+      .catch((err) => console.log(err));
+  }, [props.eventID, props.kBaseUrl]);
     
       return (
       <Card className="w-full max-w-[48rem] flex-row event-card-container">
@@ -38,16 +39,15 @@ const EventCard = (props) => {
             EVENT
           </Typography>
           <Typography variant="h4" color="blue-gray" className="mb-2">
-            {testEventData.event_name}
+            {selectedEvent.title}
           </Typography>
           <Typography variant="h8" color="blue" className="mb-4">
-            Created by {testEventData.creator}
+            Created by {selectedEvent.creator}
           </Typography>
           <Typography color="gray" className="mb-8 font-normal">
-            Comments from the event creator will go here
+            {selectedEvent.description}
           </Typography>
-          <a href="#" className="inline-block">
-          </a>
+          <br></br>
         </CardBody>
       </Card>
     );
