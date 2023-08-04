@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to="newevent">
           <a className = "nav-link" href="*">Create New Event</a>
         </Link>     
-          <a className = "nav-link" href="*">Saved Restaurants</a>
+          <a className = "nav-link" href="*">Past Events</a>
       </nav>
     </div>
   )
