@@ -8,8 +8,16 @@ import {
     Typography,
     Button,
   } from "@material-tailwind/react";
+import { format } from "date-fns";
 
 const EventCardList = (props) => {
+
+  const formatDate = (eventDate) => {
+    const utcDate = new Date(eventDate);
+    const formattedDate = format(utcDate, 'EEEE, MMMM d, yyyy');
+
+    return formattedDate;
+  }
 
   const eventList = props.eventData.map((event) => {
     return (
@@ -20,9 +28,9 @@ const EventCardList = (props) => {
               {event.title}
             </Typography>
             <Typography>
-              Event Date: {event.event_date} 
+              Event Date: {formatDate(event.event_date)} 
               <br></br>
-              Voting Deadline: {event.voting_deadline}
+              Voting Deadline: {formatDate(event.voting_deadline)}
             </Typography>
               {event.description && <Typography variant="h7">
               {event.description}

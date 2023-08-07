@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import "./EventCard.css";
+import { format } from "date-fns";
 
 
 import {
@@ -13,6 +13,13 @@ import {
 const EventCard = (props) => {
 
   const [selectedEvent, setSelectedEvent] = useState([]);
+
+  const formatDate = (eventDate) => {
+    const utcDate = new Date(eventDate);
+    const formattedDate = format(utcDate, 'EEEE, MMMM d, yyyy');
+
+    return formattedDate;
+  }
   
   useEffect(() => {
     axios
@@ -38,8 +45,12 @@ const EventCard = (props) => {
           <Typography variant="h6" color="blue" className="mb-4 uppercase">
             EVENT
           </Typography>
-          <Typography variant="h4" color="blue-gray" className="mb-2">
+          <Typography variant="h3" color="blue-gray" className="mb-2">
             {selectedEvent.title}
+          </Typography>
+          <Typography variant="h6" color="blue-gray" className="mb-2">
+            <p>Event Date: {formatDate(selectedEvent.event_date)}</p>
+            <p>Voting Deadline: {formatDate(selectedEvent.voting_deadline)}</p>
           </Typography>
           <Typography variant="h8" color="blue" className="mb-4">
             Created by {selectedEvent.creator}
