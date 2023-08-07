@@ -66,11 +66,13 @@ const SubmissionCardList = (props) => {
                 clipRule="evenodd"
               />
             </svg>
-            5.0
+            {restaurant.rating}
           </Typography>
         </div>
         <Typography color="gray">
-          Associated Yelp information can go here
+          <p><b>Genre:</b> {restaurant.genre}</p>
+          <p><b>Location:</b> {restaurant.location}</p>
+          <a href={restaurant.yelp_url}><b>Visit Yelp Page →</b></a>
         </Typography>
       </CardBody>
       <CardFooter className="pt-3">
