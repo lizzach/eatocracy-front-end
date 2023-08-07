@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { format } from "date-fns";
-
-
 import {
     Card,
     CardHeader,
@@ -15,10 +13,14 @@ const EventCard = (props) => {
   const [selectedEvent, setSelectedEvent] = useState([]);
 
   const formatDate = (eventDate) => {
-    const utcDate = new Date(eventDate);
-    const formattedDate = format(utcDate, 'EEEE, MMMM d, yyyy');
-
-    return formattedDate;
+    try {
+      const utcDate = new Date(eventDate);
+      const formattedDate = format(utcDate, 'EEEE, MMMM d, yyyy');
+      return formattedDate;
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
   
   useEffect(() => {
@@ -26,7 +28,7 @@ const EventCard = (props) => {
       .get(`${props.baseUrl}/events/${props.eventID}`)
       .then((res) => setSelectedEvent(res.data[0]))
       .catch((err) => console.log(err));
-  }, [props.eventID, props.kBaseUrl]);
+  }, [props.eventID, props.baseUrl]);
     
       return (
       <Card className="w-full max-w-[48rem] flex-row event-card-container">
