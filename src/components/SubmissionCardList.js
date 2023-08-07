@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import '../styles/SubmissionCard.css'
 
 import {
@@ -13,6 +13,10 @@ import {
    
 const SubmissionCardList = (props) => {
 
+  // const testClick = (submission_id) => {
+  //   console.log(submission_id);
+  // }
+
   const getRandomImg = (numImages) => {
     const randNum = Math.floor(Math.random() * numImages);
     return (
@@ -22,7 +26,7 @@ const SubmissionCardList = (props) => {
 
   const submissionCards = props.restaurantData.map((restaurant) => {
     return (
-      <Card className="w-full max-w-[20rem] shadow-lg submission-card">
+      <Card key={restaurant.id} className="w-full max-w-[20rem] shadow-lg submission-card">
       <CardHeader floated={false} color="blue-gray">
         <img
           src={getRandomImg(9)}
@@ -76,7 +80,7 @@ const SubmissionCardList = (props) => {
         </Typography>
       </CardBody>
       <CardFooter className="pt-3">
-        <Button className="bg-blue-900" size="lg" fullWidth={true}>
+        <Button className="bg-blue-900" size="lg" fullWidth={true} onClick={() => props.handleVote(restaurant.id)}>
           Vote
         </Button>
       </CardFooter>
