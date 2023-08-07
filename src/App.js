@@ -5,6 +5,7 @@ import EventDetails from "./pages/EventDetails";
 import CreateEventPage from "./pages/CreateEventPage";
 import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route element={<EventDetails />} path="/events/:id"/>
         <Route element={<PageNotFound />} path="*"/>
       </Routes>
+      <Footer />
     </>
   )
 }
