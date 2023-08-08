@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
 import "../styles/CityInputBox.css"
@@ -12,7 +12,10 @@ const CityInputBox = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.handleCitySubmit(props.city);
+    if (props.city) {
+      props.setIsSubmitted(true);
+    }
+    // props.handleCitySubmit(props.city);
     console.log(props.city)
   };
 
@@ -26,7 +29,7 @@ const CityInputBox = (props) => {
           onChange={handleChange}/>
       </div>
       <div className="city-submit-btn">
-        <Button onSubmit={handleSubmit}>SUBMIT</Button>
+        <Button onClick={handleSubmit}>SUBMIT</Button>
       </div>
     </form>
   );

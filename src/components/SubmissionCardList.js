@@ -13,23 +13,12 @@ import {
    
 const SubmissionCardList = (props) => {
 
-  // const testClick = (submission_id) => {
-  //   console.log(submission_id);
-  // }
-
-  const getRandomImg = (numImages) => {
-    const randNum = Math.floor(Math.random() * numImages);
-    return (
-      `../images/stock-photo-${randNum}.jpg`
-    )
-  };
-
   const submissionCards = props.restaurantData.map((restaurant) => {
     return (
-      <Card key={restaurant.id} className="w-full max-w-[20rem] shadow-lg submission-card">
-      <CardHeader floated={false} color="blue-gray">
+      <Card key={restaurant.id} className="w-full max-w-[25rem] shadow-lg submission-card">
+      <CardHeader floated={false} color="blue-gray" className="max-h-[20rem]">
         <img
-          src={getRandomImg(9)}
+          src={restaurant.photo}
           alt="aesthetic food shot"
         />
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
@@ -75,7 +64,9 @@ const SubmissionCardList = (props) => {
         </div>
         <Typography color="gray">
           <p><b>Genre:</b> {restaurant.genre}</p>
-          <p><b>Location:</b> {restaurant.location}</p>
+          <p><b>City:</b> {restaurant.city}</p>
+          <p><b>Address:</b> {restaurant.location}</p>
+          <p><b>Price:</b> {restaurant.price}</p>
           <a href={restaurant.yelp_url}><b>Visit Yelp Page →</b></a>
         </Typography>
       </CardBody>
@@ -83,6 +74,7 @@ const SubmissionCardList = (props) => {
         <Button className="bg-blue-900" size="lg" fullWidth={true} onClick={() => props.handleVote(restaurant.id)}>
           Vote
         </Button>
+        {console.log(restaurant.photo)}
       </CardFooter>
     </Card>
     )

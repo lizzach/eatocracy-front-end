@@ -18,14 +18,14 @@
 
 .main-event-container {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 55% 45%;
   margin-top: 3rem;
   margin-bottom: 5rem;
 }
 
 .event-card {
-  padding-left: 9rem;
-  padding-right: 2rem;
+  padding-left: 15rem;
+
 }
 
 .search-box, .city-input-box {
@@ -44,4 +44,5 @@
 
 .button-container {
   margin-top: 3rem;
+  /* padding-left: 5rem; */
 }
