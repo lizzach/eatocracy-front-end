@@ -48,7 +48,6 @@ const NewSubmissionForm = (props) => {
         )
     })
 
-
     const handleFormSubmit = (event) => {
         event.preventDefault();
         props.handleRestaurantSubmit({ ...formData });
