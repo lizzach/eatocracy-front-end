@@ -1,0 +1,7 @@
+.city-input-container {
+    display: flex;
+}
+
+.city-input-box {
+    margin-right: 1rem;
+}

@@ -29,8 +29,13 @@
 }
 
 .search-box, .city-input-box {
+  display: flex;
   margin-bottom: 1.5rem;
-  width: 288px;
+}
+
+.search-box-input {
+  margin-right: 1rem;
+  width: 350px;
 }
 
 .participants-button {

@@ -1,5 +1,7 @@
 import React from "react";
 import { Input } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
+import "../styles/CityInputBox.css"
  
 const CityInputBox = (props) => {
 
@@ -15,14 +17,17 @@ const CityInputBox = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex w-72 flex-col gap-6">
+    <form className="city-input-container">
+      <div className="flex w-72 flex-col gap-6 min-w-[350px] city-input-box">
         <Input 
           variant="outlined" 
-          label="Input City"
+          label="Input City, State"
           value={props.city} 
           onChange={handleChange}/>
-      </div> 
+      </div>
+      <div className="city-submit-btn">
+        <Button onSubmit={handleSubmit}>SUBMIT</Button>
+      </div>
     </form>
   );
 }

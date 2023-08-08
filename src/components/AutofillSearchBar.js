@@ -16,8 +16,8 @@ function debounce(func, wait) {
 }
 
 const AutofillSearchBar = (props) => {
+
   const [values, setValues] = useState([]);
-  const [restaurantID, setSelectedRestaurant] = useState('');
   const debounceOnChange = useCallback(debounce(onChange, 500), [props.city]);
 
 
@@ -47,41 +47,10 @@ const AutofillSearchBar = (props) => {
 
   const handleSelect = (event) => {
     const selectedOption = event.target.value;
-    const chosenRestaurant = selectedOption.split(" - ")[2];
-    setSelectedRestaurant(chosenRestaurant);
+    const chosenRestaurant = selectedOption.split(" -- ")[2];
+    console.log(chosenRestaurant);
+    props.setRestaurantID(chosenRestaurant);
   }
-
-
-  const handleSubmit = (selectedRestaurant) => {
-    let config = {
-    method: 'get',
-    maxBodyLength: Infinity,
-    url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${restaurantID}`,
-    headers: { 
-      'Authorization': `Bearer ${API_KEY}`
-    }
-  };
-
-  
-  axios.request(config)
-  .then((response) => {
-    const yelpData = {
-      submission_name: response.data.name,
-      votes_count: 0,
-      event_id: props.event_id,
-      rating: response.data.rating,
-      location: response.data.location.address1,
-      yelp_url: response.data.url,
-      genre: response.data.categories[0].title
-    }
-    console.log(yelpData);
-    props.handleRestaurantSubmit(yelpData)
-  })
-  .catch((error) => {
-    console.log(error);
-  });
-};
-
 
   return (
     <div className="search-bar-container">
@@ -98,14 +67,13 @@ const AutofillSearchBar = (props) => {
         {values.map((value) => {
           return (
             <option 
-              value={`${value.name} - ${value.location.address1} - ${value.id}`}
+              value={`${value.name} -- ${value.location.address1} -- ${value.id}`}
               label={value.name}
               id={value.id}
             ></option>
           )
         })}
       </datalist>
-      <Button onClick={handleSubmit}>Add</Button>
     </div>
   );
 }
