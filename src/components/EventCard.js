@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { format } from "date-fns";
 import {
     Card,
@@ -9,8 +8,6 @@ import {
   } from "@material-tailwind/react";
    
 const EventCard = (props) => {
-
-  const [selectedEvent, setSelectedEvent] = useState([]);
 
   const formatDate = (eventDate) => {
     try {
@@ -22,13 +19,6 @@ const EventCard = (props) => {
       console.log(err)
     }
   }
-  
-  useEffect(() => {
-    axios
-      .get(`${props.baseUrl}/events/${props.eventID}`)
-      .then((res) => setSelectedEvent(res.data[0]))
-      .catch((err) => console.log(err));
-  }, [props.eventID, props.baseUrl]);
     
       return (
       <Card className="w-full max-w-[48rem] flex-row event-card-container">
@@ -48,17 +38,17 @@ const EventCard = (props) => {
             EVENT
           </Typography>
           <Typography variant="h3" color="blue-gray" className="mb-2">
-            {selectedEvent.title}
+            {props.selectedEvent.title}
           </Typography>
           <Typography variant="h6" color="blue-gray" className="mb-2">
-            <p>Event Date: {formatDate(selectedEvent.event_date)}</p>
-            <p>Voting Deadline: {formatDate(selectedEvent.voting_deadline)}</p>
+            <p>Event Date: {formatDate(props.selectedEvent.event_date)}</p>
+            <p>Voting Deadline: {formatDate(props.selectedEvent.voting_deadline)}</p>
           </Typography>
           <Typography variant="h8" color="blue" className="mb-4">
-            Created by {selectedEvent.creator}
+            Created by {props.selectedEvent.creator}
           </Typography>
           <Typography color="gray" className="mb-8 font-normal">
-            {selectedEvent.description}
+            {props.selectedEvent.description}
           </Typography>
           <br></br>
         </CardBody>
