@@ -13,13 +13,9 @@ const Navbar = () => {
           </div>
       </header>
       <nav className="main-nav">
-        <Link to="dashboard">
-          <a className = "nav-link" href="*">Dashboard</a>
-        </Link>
-        <Link to="newevent">
-          <a className = "nav-link" href="*">Create New Event</a>
-        </Link>     
-          <a className = "nav-link" href="*">Past Events</a>
+        <Link to="dashboard" className="nav-link">Dashboard</Link>
+        <Link to="newevent" className="nav-link">Create New Event</Link>
+        <Link to="pastevents" className="nav-link">Past Events</Link>   
       </nav>
     </div>
   )
