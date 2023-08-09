@@ -8,8 +8,8 @@
 
 .submission-list {
   display: grid;
-  grid-template-columns: 5% 90% 5%;
-  margin-left: 5rem;
+  margin-left: 2rem;
+  /* grid-template-columns: 15% 70% 15%; */
 }
 
 .submission-cards {
@@ -24,7 +24,8 @@
 }
 
 .event-card {
-  padding-left: 15rem;
+  padding-left: 10rem;
+  padding-right: 2rem;
 
 }
 
