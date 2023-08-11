@@ -52,6 +52,10 @@ const AutofillSearchBar = (props) => {
     props.setRestaurantID(chosenRestaurant);
   }
 
+  const todaysDate = new Date()
+  const eventDate = new Date(props.selectedEvent.event_date);
+  const isPastDate = todaysDate > eventDate;
+
   return (
     <div className="search-bar-container">
       <label>
@@ -61,6 +65,7 @@ const AutofillSearchBar = (props) => {
         className="filter-input"
         onChange={e => debounceOnChange(e.target.value)}
         onSelect={handleSelect}
+        disabled={isPastDate}
       />
       </label>
       <datalist id="restaurants-dropdown">

@@ -26,10 +26,11 @@ const CityInputBox = (props) => {
           variant="outlined" 
           label="Input City, State"
           value={props.city} 
-          onChange={handleChange}/>
+          onChange={handleChange}
+          disabled={props.isPastDate}/>
       </div>
       <div className="city-submit-btn">
-        <Button onClick={handleSubmit}>SUBMIT</Button>
+        <Button disabled={props.isPastDate} onClick={handleSubmit}>SUBMIT</Button>
       </div>
     </form>
   );

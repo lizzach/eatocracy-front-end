@@ -2,3 +2,7 @@
     display: inline-block;
     margin: 2rem;
 }
+
+.results {
+    padding-left: 8rem;
+}
