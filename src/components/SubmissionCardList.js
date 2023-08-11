@@ -1,19 +1,18 @@
 import React from "react";
+import { DialogDefault } from "./Dialog";
 import '../styles/SubmissionCard.css';
-
 import {
     Card,
     CardHeader,
     CardBody,
     CardFooter,
     Typography,
-    Button,
     IconButton,
   } from "@material-tailwind/react";
    
-const SubmissionCardList = (props) => {
+const SubmissionCardList = ({ isVoteCast, handleVote, restaurantData, isOpen, setOpen }) => {
 
-  const submissionCards = props.restaurantData.map((restaurant) => {
+  const submissionCards = restaurantData.map((restaurant) => {
     return (
       <Card key={restaurant.id} className="w-full max-w-[25rem] shadow-lg submission-card">
       <CardHeader floated={false} color="blue-gray" className="max-h-[20rem]">
@@ -71,10 +70,10 @@ const SubmissionCardList = (props) => {
         </Typography>
       </CardBody>
       <CardFooter className="pt-3">
-        <Button className="bg-blue-900" size="lg" fullWidth={true} onClick={() => props.handleVote(restaurant.id)}>
+        {/* <Button disabled={isVoteCast} className="bg-blue-900" size="lg" fullWidth={true} onClick={() => handleVote(restaurant.id)}>
           Vote
-        </Button>
-        {console.log(restaurant.photo)}
+        </Button> */}
+        <DialogDefault isOpen={isOpen} restaurantID={restaurant.id} setOpen={setOpen} handleVote={handleVote} isVoteCast={isVoteCast}>Vote</DialogDefault>
       </CardFooter>
     </Card>
     )
