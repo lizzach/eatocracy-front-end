@@ -6,13 +6,13 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
  
-export function DialogDefault({isOpen, setOpen, handleVote, isVoteCast, restaurantID }) {
+export function DialogDefault({isOpen, setOpen, handleVote, isVoteCast, restaurantID, isPastDate }) {
   console.log(isVoteCast);
   console.log(isOpen);
  
   return (
     <>
-      <Button disabled={isVoteCast} onClick={() => handleVote(restaurantID)} variant="gradient" className="bg-blue-900" size="lg" fullWidth={true}>
+      <Button disabled={isVoteCast || isPastDate} onClick={() => handleVote(restaurantID)} variant="gradient" className="bg-blue-900" size="lg" fullWidth={true}>
         VOTE
       </Button>
       <Dialog open={isOpen} handler={setOpen}>

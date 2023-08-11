@@ -9,8 +9,13 @@ import {
     Typography,
     IconButton,
   } from "@material-tailwind/react";
+import { isPast } from "date-fns";
    
-const SubmissionCardList = ({ isVoteCast, handleVote, restaurantData, isOpen, setOpen }) => {
+const SubmissionCardList = ({ isVoteCast, handleVote, restaurantData, isOpen, setOpen, selectedEvent }) => {
+
+  const todaysDate = new Date()
+  const eventDate = new Date(selectedEvent.event_date);
+  const isPastDate = todaysDate > eventDate;
 
   const submissionCards = restaurantData.map((restaurant) => {
     return (
@@ -73,7 +78,15 @@ const SubmissionCardList = ({ isVoteCast, handleVote, restaurantData, isOpen, se
         {/* <Button disabled={isVoteCast} className="bg-blue-900" size="lg" fullWidth={true} onClick={() => handleVote(restaurant.id)}>
           Vote
         </Button> */}
-        <DialogDefault isOpen={isOpen} restaurantID={restaurant.id} setOpen={setOpen} handleVote={handleVote} isVoteCast={isVoteCast}>Vote</DialogDefault>
+        <DialogDefault 
+          isOpen={isOpen} 
+          restaurantID={restaurant.id} 
+          setOpen={setOpen} 
+          handleVote={handleVote} 
+          isVoteCast={isVoteCast}
+          isPastDate={isPastDate}>
+            Vote
+        </DialogDefault>
       </CardFooter>
     </Card>
     )

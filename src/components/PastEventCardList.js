@@ -22,9 +22,11 @@ const PastEventCardList = ({ eventData }) => {
     const todaysDate = new Date();
 
     const pastEventList = eventData.map((event) => {
+      
       const eventDate = new Date(event.event_date);
+      const isPastDate = todaysDate > eventDate;
   
-      if (todaysDate > eventDate) {
+      if (isPastDate) {
         return (
           <div key={event.id} className="card-div">
             <Card className="bg-gray-100 mt-6 w-96">
