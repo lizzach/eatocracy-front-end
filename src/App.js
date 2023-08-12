@@ -7,6 +7,8 @@ import PastEvents from "./pages/PastEvents";
 import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ImgUpload from "./components/ImgUpload";
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
         <Route element={<CreateEventPage />} path="/newevent"/>
         <Route element={<EventDetails />} path="/events/:id"/>
         <Route element={<PastEvents />} path="/pastevents"/>
+        <Route element={<ImgUpload />} path="/test"/>
         <Route element={<PageNotFound />} path="*"/>
       </Routes>
       <Footer />

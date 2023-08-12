@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
     Card,
     CardBody,
+    CardHeader,
     CardFooter,
     Typography,
     Button,
@@ -27,6 +28,12 @@ const EventCardList = ({ eventData }) => {
       return (
         <div key={event.id} className="card-div">
           <Card className="bg-gray-100 mt-6 w-96">
+          {event.photo && <CardHeader color="blue-gray" className="relative h-56">
+            <img
+              src={event.photo}
+              alt={event.photo}
+            />
+          </CardHeader>}
             <CardBody>
               <Typography variant="h5" color="blue-gray" className="mb-2">
                 {event.title}

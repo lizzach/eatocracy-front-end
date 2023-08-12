@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/CreateEventPage.css";
+import ImgUpload from "../components/ImgUpload";
 import axios from "axios";
 import {
     Card,
@@ -17,9 +18,12 @@ const CreateEventPage = () => {
     description: '',
     event_date: '',
     voting_deadline: '',
+    photo: ''
   }
 
   const [formData, setFormData] = useState(kInitialFormData);
+  const [image, setImage] = useState(null);
+  const [fileName, setFileName] = useState("No selected file");
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -28,19 +32,26 @@ const CreateEventPage = () => {
     setFormData((prev) => ({
         ...prev, [name]: value
     }));
+
+    console.log(formData);
+
+    // if (image) {
+    //   setFormData((prev) => ({
+    //     ...prev, photo: image
+    // }));
+    // }
   };
 
   const handleNewEventSubmit = (newEventFormData) => {
     axios
       .post(`${kBaseUrl}/events`, newEventFormData)
-      .then((res) => setFormData(res.data))
+      .then((res) => setFormData(kInitialFormData))
       .catch((err) => console.log(err));
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     handleNewEventSubmit({ ...formData });
-    setFormData(kInitialFormData);
   };
 
   return (
@@ -61,13 +72,14 @@ const CreateEventPage = () => {
               <Input type="date" size="lg" label="Date" onChange={handleChange} name="event_date" value={formData.event_date}/>
               <Input type="date" size="lg" label="Voting Deadline" onChange={handleChange} name="voting_deadline" value={formData.voting_deadline}/>
             </div>
+            <ImgUpload image={image} setImage={setImage} fileName={fileName} setFileName={setFileName} setFormData={setFormData} formData={formData}/>
               <Button type="submit" className="bg-blue-900 mt-6" fullWidth>
                 Register
               </Button>
           </form>
-      </Card>
+        </Card>
+      </div>
     </div>
-  </div>
   );
 }
   
