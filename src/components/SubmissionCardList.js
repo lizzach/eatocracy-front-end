@@ -1,5 +1,5 @@
 import React from "react";
-import { DialogDefault } from "./Dialog";
+import { DialogDefault } from "./VotingDialogue";
 import '../styles/SubmissionCard.css';
 import {
     Card,

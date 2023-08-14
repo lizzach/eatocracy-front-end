@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import EventDialogue from "../components/EventDialogue";
 import "../styles/CreateEventPage.css";
 import axios from "axios";
 import {
@@ -20,6 +21,8 @@ const CreateEventPage = () => {
   }
 
   const [formData, setFormData] = useState(kInitialFormData);
+  const [newEventData, setNewEventData] = useState([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -33,14 +36,15 @@ const CreateEventPage = () => {
   const handleNewEventSubmit = (newEventFormData) => {
     axios
       .post(`${kBaseUrl}/events`, newEventFormData)
-      .then((res) => setFormData(kInitialFormData))
+      .then((res) => setNewEventData(res.data))
+      .then(() => setFormData(kInitialFormData))
       .catch((err) => console.log(err));
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     handleNewEventSubmit({ ...formData });
-    // setFormData(kInitialFormData);
+    setIsSubmitted(true);
   };
 
   return (
@@ -65,6 +69,7 @@ const CreateEventPage = () => {
                 Register
               </Button>
           </form>
+          {isSubmitted && <EventDialogue isSubmitted={isSubmitted} setIsSubmitted={setIsSubmitted} newEventData={newEventData}></EventDialogue>}
       </Card>
     </div>
   </div>
