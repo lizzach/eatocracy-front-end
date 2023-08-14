@@ -33,14 +33,14 @@ const CreateEventPage = () => {
   const handleNewEventSubmit = (newEventFormData) => {
     axios
       .post(`${kBaseUrl}/events`, newEventFormData)
-      .then((res) => setFormData(res.data))
+      .then((res) => setFormData(kInitialFormData))
       .catch((err) => console.log(err));
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     handleNewEventSubmit({ ...formData });
-    setFormData(kInitialFormData);
+    // setFormData(kInitialFormData);
   };
 
   return (

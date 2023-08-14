@@ -18,6 +18,11 @@
     font-size: 0.75em;
 }
 
+.nav-link:hover {
+    /* text-decoration: underline; */
+    font-weight: bold;
+}
+
 .App-header {
     display: inline-block;
     width: 100%;

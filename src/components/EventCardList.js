@@ -26,7 +26,7 @@ const EventCardList = ({ eventData }) => {
     if (todaysDate < eventDate) {
       return (
         <div key={event.id} className="card-div">
-          <Card className="bg-gray-100 mt-6 w-96">
+          <Card className="bg-gray-100 mt-6 w-96" id="event-card">
             <CardBody>
               <Typography variant="h5" color="blue-gray" className="mb-2">
                 {event.title}

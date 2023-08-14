@@ -2,7 +2,7 @@ import React from "react";
 import {
   Button,
   Dialog,
-  DialogBody,
+  DialogHeader,
   DialogFooter,
 } from "@material-tailwind/react";
  
@@ -16,9 +16,9 @@ export function DialogDefault({isOpen, setOpen, handleVote, isVoteCast, restaura
         VOTE
       </Button>
       <Dialog open={isOpen} handler={setOpen}>
-        <DialogBody divider>
+      <DialogHeader>
           Thanks for voting!
-        </DialogBody>
+      </DialogHeader>
         <DialogFooter>
           <Button variant="gradient" color="green" onClick={() => setOpen}>
             <span>You're Welcome</span>
