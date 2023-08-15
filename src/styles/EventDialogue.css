@@ -1,0 +1,7 @@
+.event-link {
+  text-decoration: underline;
+}
+
+.event-link:hover {
+  font-weight: bold;
+}

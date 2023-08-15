@@ -19,19 +19,17 @@
 }
 
 .nav-link:hover {
-    /* text-decoration: underline; */
     font-weight: bold;
 }
 
 .App-header {
     display: inline-block;
     width: 100%;
-    text-align: center;
 }
 
 .App-header h1 {
     display: inline-block;
-    width: 93%;
+    width: 100%;
     padding-left: 4rem;
     text-align: center;
     margin-right: auto;
@@ -40,6 +38,6 @@
     font-size: 3em;
   }
 
-.avatar-container {
-    display: inline;
+.avatar-container img {
+    padding: 1rem;
 }

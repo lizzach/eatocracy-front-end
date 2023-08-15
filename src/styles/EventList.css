@@ -5,7 +5,7 @@
 
 .event-list-container {
     display: grid;
-    grid-template-columns: 20% 80% 20%;
+    grid-template-columns: 15% 75% 10%;
 }
 
 .event-list {

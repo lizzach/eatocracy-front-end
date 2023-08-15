@@ -1,6 +1,7 @@
 .new-event-container {
     display: grid;
     grid-template-columns: 20% 60% 20%;
+    min-height: calc(88vh - 75px);
 }
 
 .new-event-form {

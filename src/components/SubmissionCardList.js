@@ -32,7 +32,7 @@ const SubmissionCardList = ({ isVoteCast, handleVote, restaurantData, isOpen, se
   const submissionCards = restaurants.map((restaurant, index) => {
     return (
       <div key={index} className="submission-card">
-        <Card className="w-full max-w-[25rem] shadow-lg">
+        <Card className="w-full max-w-[25rem] shadow-lg ranking">
         { isPastDate && <Typography variant="h3" color="pink" className="font-medium results" textGradient>
           <b>{ranking(index)}</b>
         </Typography>}

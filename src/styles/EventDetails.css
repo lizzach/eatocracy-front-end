@@ -1,3 +1,7 @@
+.App {
+  min-height: calc(83vh - 75px);
+}
+
 .App-header h1 {
   text-align: center;
   margin: 0;

@@ -7,6 +7,8 @@ import PastEvents from "./pages/PastEvents";
 import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SimpleRegistrationForm from "./pages/Home"
+import "./App.css"
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
+        <Route index element={<SimpleRegistrationForm />} path=""/>
         <Route index element={<Dashboard />} path="/dashboard"/>
         <Route element={<CreateEventPage />} path="/newevent"/>
         <Route element={<EventDetails />} path="/events/:id"/>
