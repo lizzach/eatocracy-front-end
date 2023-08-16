@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/CreateEventPage.css";
+import "../styles/Home.css";
 import {
     Card,
     Input,

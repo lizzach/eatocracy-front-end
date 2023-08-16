@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PastEventCardList from "../components/PastEventCardList";
 import "../styles/Dashboard.css";
+import "../styles/EventList.css";
 import axios from "axios";
 
 const kBaseUrl = 'http://127.0.0.1:5000'

@@ -29,19 +29,22 @@ const PastEventCardList = ({ eventData }) => {
       if (isPastDate) {
         return (
           <div key={event.id} className="card-div">
-            <Card className="bg-gray-100 mt-6 w-96" id="event-card">
+            <Card className="mt-6 w-96" id="event-card">
               <CardBody>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
                   {event.title}
                 </Typography>
                 <Typography>
-                  Event Date: {formatDate(event.event_date)} 
+                  <b>Event Date:</b> {formatDate(event.event_date)} 
                   <br></br>
-                  Voting Deadline: {formatDate(event.voting_deadline)}
+                  <b>Voting Deadline:</b> {formatDate(event.voting_deadline)}
                 </Typography>
-                  {event.description && <Typography variant="h7">
-                  {event.description}
-                </Typography>}
+                  {event.description && 
+                  <div className="event-description">
+                    <Typography variant="h7">
+                      {event.description}
+                    </Typography>
+                  </div>}
                 </CardBody>
                 <CardFooter className="pt-0">
                 <Link to={`/events/${event.id}`}>

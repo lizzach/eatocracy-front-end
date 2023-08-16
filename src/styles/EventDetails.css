@@ -1,5 +1,6 @@
 .App {
   min-height: calc(83vh - 75px);
+  background: white;
 }
 
 .App-header h1 {
@@ -23,7 +24,7 @@
 .main-event-container {
   display: grid;
   grid-template-columns: 55% 45%;
-  margin-top: 3rem;
+  padding-top: 3rem;
   margin-bottom: 5rem;
 }
 

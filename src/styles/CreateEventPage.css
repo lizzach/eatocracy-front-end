@@ -1,7 +1,7 @@
 .new-event-container {
   display: grid;
   grid-template-columns: 20% 60% 20%;
-  min-height: calc(88vh - 75px);
+  min-height: calc(89vh - 75px);
 }
 
 .new-event-form {
@@ -12,5 +12,6 @@
   box-shadow: 5px 7px 8px 7px #c9c5c5;
   padding: 50px;
   border-radius: 5%;
+  background-color: white;
 }
 

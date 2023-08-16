@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.header-container {
+  background-color: white;
+}
+
 .main-nav {
   display: flex;
   justify-content: center;

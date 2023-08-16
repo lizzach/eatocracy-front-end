@@ -34,7 +34,7 @@ const SubmissionCardList = ({ isVoteCast, handleVote, restaurantData, isOpen, se
       <div key={index} className="submission-card">
         <Card className="w-full max-w-[25rem] shadow-lg ranking">
         { isPastDate && <Typography variant="h3" color="pink" className="font-medium results" textGradient>
-          <b>{ranking(index)}</b>
+          {ranking(index)}
         </Typography>}
         <CardHeader floated={false} color="blue-gray" className="max-h-[25rem]">
           <img
