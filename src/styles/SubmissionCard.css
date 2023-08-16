@@ -12,3 +12,7 @@
 .ranking {
     padding-top: 1rem;
 }
+
+.yelp-link:hover {
+    font-weight: bold;
+}

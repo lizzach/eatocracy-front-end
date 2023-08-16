@@ -19,3 +19,12 @@
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
 }
+
+.event-description {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+b {
+    color: black;
+}

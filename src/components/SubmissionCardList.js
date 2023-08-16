@@ -72,7 +72,7 @@ const SubmissionCardList = ({ isVoteCast, handleVote, restaurantData, isOpen, se
             <p><b>City:</b> {restaurant.city}</p>
             <p><b>Address:</b> {restaurant.location}</p>
             <p><b>Price:</b> {restaurant.price}</p>
-            <a href={restaurant.yelp_url}><b>Visit Yelp Page →</b></a>
+            <a href={restaurant.yelp_url}><b className="yelp-link">Visit Yelp Page →</b></a>
           </Typography>
         </CardBody>
         <CardFooter className="pt-3">
