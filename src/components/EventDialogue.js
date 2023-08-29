@@ -16,9 +16,6 @@ const EventDialogue = ({ isSubmitted, setIsSubmitted, newEventData}) => {
  
   return (
     <>
-      {/* <Button onClick={handleOpen} variant="gradient">
-        Open Dialog
-      </Button> */}
       <Dialog open={isSubmitted} handler={handleOpen}>
         <DialogHeader>Event Submitted</DialogHeader>
         <DialogBody divider>

@@ -1,5 +1,5 @@
 import React from "react";
-import './ParticipantsButton.css'
+import '../styles/ParticipantsButton.css';
 import { Button } from "@material-tailwind/react";
  
 const ParticipantsButton = () => {
