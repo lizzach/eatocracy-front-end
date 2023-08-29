@@ -47,11 +47,20 @@ const AutofillSearchBar = ({ selectedEvent, restaurantID, setRestaurantID, event
     console.log(values); // Log the updated values whenever 'values' changes
   }, [values]);
 
+  const findIdByAddress = (targetAddress) => {
+    for (const res of values) {
+      if (res.location.address1 === targetAddress) {
+        return res.id;
+      }
+    }
+    return null; // Address not found
+  }
+
   const handleSelect = (event) => {
     const selectedOption = event.target.value;
-    const chosenRestaurant = selectedOption.split(" -- ")[2];
-    console.log(chosenRestaurant);
-    setRestaurantID(chosenRestaurant);
+    const targetAddress = selectedOption.split(" -- ")[1];
+    const chosenRestaurantID = findIdByAddress(targetAddress);
+    setRestaurantID(chosenRestaurantID);
   }
 
   const todaysDate = new Date()
@@ -74,10 +83,12 @@ const AutofillSearchBar = ({ selectedEvent, restaurantID, setRestaurantID, event
         {values.map((value) => {
           return (
             <option 
-              value={`${value.name} -- ${value.location.address1} -- ${value.id}`}
+              value={`${value.name} -- ${value.location.address1}`}
               label={value.name}
               id={value.id}
-            ></option>
+              key={value.id}
+            >
+            </option>
           )
         })}
       </datalist>
