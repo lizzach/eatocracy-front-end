@@ -17,17 +17,17 @@ function debounce(func, wait) {
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const AutofillSearchBar = (props) => {
+const AutofillSearchBar = ({ selectedEvent, restaurantID, setRestaurantID, event_id, city, handleRestaurantSubmit }) => {
 
   const [values, setValues] = useState([]);
-  const debounceOnChange = useCallback(debounce(onChange, 500), [props.city]);
+  const debounceOnChange = useCallback(debounce(onChange, 500), [city]);
 
 
   function onChange(value) {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${props.city}&term=${value}`,
+      url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=${city}&term=${value}`,
       headers: { 
         'Authorization': `Bearer ${API_KEY}`
       }
@@ -51,11 +51,11 @@ const AutofillSearchBar = (props) => {
     const selectedOption = event.target.value;
     const chosenRestaurant = selectedOption.split(" -- ")[2];
     console.log(chosenRestaurant);
-    props.setRestaurantID(chosenRestaurant);
+    setRestaurantID(chosenRestaurant);
   }
 
   const todaysDate = new Date()
-  const eventDate = new Date(props.selectedEvent.event_date);
+  const eventDate = new Date(selectedEvent.event_date);
   const isPastDate = todaysDate > eventDate;
 
   return (
