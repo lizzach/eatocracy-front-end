@@ -16,7 +16,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route index element={<SimpleRegistrationForm />} path=""/>
+        <Route index element={<SimpleRegistrationForm />} path="/register"/>
         <Route index element={<Dashboard />} path="/dashboard"/>
         <Route element={<CreateEventPage />} path="/newevent"/>
         <Route element={<EventDetails />} path="/events/:id"/>
